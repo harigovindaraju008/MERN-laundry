@@ -98,12 +98,11 @@ router.post("/", verifyToken, async (req, res) => {
     let reqUser = await User.findOne({ email: userData.email }).select([
       "-pwd",
     ]);
-    if (!reqUser) res.status(401).send("User details invaild ");
-
+    if (reqUser) 
+     {
     let service = await  Service.findOne({serviceName:booking.serviceName});
-     if(!service)(res.status(401).send("service details invaild"))
-
-
+     if(service)
+    {
     let reqbooking = Booking({
       userId: reqUser._id,
       userName: reqUser.fname + reqUser.lname,
@@ -117,12 +116,17 @@ router.post("/", verifyToken, async (req, res) => {
     });
 
     let resBookings = await reqbooking.save();
-    if (!resBookings) res.status(401).send("booking details didn't store");
+    if (resBookings) 
+    {
     let bookinfInfo = await Booking.findById(resBookings._id).populate('userId').populate("serviceId");
-
     sendMail(bookinfInfo,service.serviceName,reqUser.email,"bookingInfo");
-
     res.status(200).send("Thanks for booking");
+    }
+    else(res.status(401).send("booking details didn't store"))
+  }
+  else (res.status(401).send("service details invaild"))
+  }
+  else (res.status(401).send("User details invaild "));
   } else
    {
     res.status(401).send("invalid token");
