@@ -1,4 +1,4 @@
 import axios from "axios";
-const api = axios.create({ baseURL: "http://localhost:4001/" });
-export const dataApi =  `http://localhost:4001`;
+const api = axios.create({ baseURL: "" });
+export const dataApi =  ``;
 export default api;

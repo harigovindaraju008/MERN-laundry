@@ -159,7 +159,7 @@ import Preloader from "./Preloader";
       return (
         <div className={this.state.servicename.name === data.serviceName ? "serviceboxActive": "servicebox" }  id="hello" onClick={() => {  this.setState({servicename:{...this.state.servicename,name:data.serviceName , imgurl:data._id}, step1:true})} } >
           <div>
-            {console.log(`${dataApi}/services/${data._id}/image`)}
+       
             <img src={`${dataApi}/services/${data._id}/image`} alt="error" />
           </div>
           <div>
@@ -492,7 +492,7 @@ import Preloader from "./Preloader";
           {
            return(
                 <div className="items-purchased order-layout">
-                <div id="item"><img src={"http://localhost:4001/serviceUnits/" + items.unitImg + "/image"} height="30px" width="30px" alt="item pic"/>&nbsp;{items.unitName}</div>
+                <div id="item"><img src={`${dataApi}/serviceUnits/${items.unitImg}/image`} height="30px" width="30px" alt="item pic"/>&nbsp;{items.unitName}</div>
                 <div id="qty"> x{items.unitQty} </div>
                 <div id="price">₹ {items.unitQty*items.unitRate} </div>
                 </div>
@@ -607,7 +607,7 @@ import Preloader from "./Preloader";
                 </div>
                
                <div className="items-purchased order-layout">
-                <div id="item"> <img src={"http://localhost:4001/services/" + this.state.servicename.imgurl + "/image"} height="30px" width="30px" alt="service name error"/> {this.state.servicename.name}</div>
+                <div id="item"> <img src={`${dataApi}/services/${this.state.servicename.imgurl}/image`} height="30px" width="30px" alt="service name error"/> {this.state.servicename.name}</div>
                 {this.state.deliveryDate && <div id="qty">  <img src={pickDate} alt="deliveryDate error"/>  {this.state.pickupDate} </div>}
                 {this.state.deliveryDate &&<div id="price"> <img src={deliveryDate} alt="deliveryDate error"/> {this.state.deliveryDate} </div>}
                 </div>
