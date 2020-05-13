@@ -515,7 +515,7 @@ import Preloader from "./Preloader";
        
          </Modal>
          }
-         {this.state.loader && <Preloader/>}
+         {this.state.loader && <Preloader/> :
 
         <Header btn_name="MyAccount" path="/MyAccount" Headertwo={true}/>
         <div className="booking-div">
@@ -710,6 +710,7 @@ import Preloader from "./Preloader";
             </form>
           </div>
         </div>
+  }
       </div> 
     );
   }
