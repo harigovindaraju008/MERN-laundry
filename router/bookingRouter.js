@@ -120,6 +120,7 @@ router.post("/", verifyToken, async (req, res) => {
     {
     let bookinfInfo = await Booking.findById(resBookings._id).populate('userId').populate("serviceId");
     sendMail(bookinfInfo,service.serviceName,reqUser.email,"bookingInfo");
+    console.log("mail send");
     res.status(200).send("Thanks for booking");
     }
     else(res.status(401).send("booking details didn't store"))
