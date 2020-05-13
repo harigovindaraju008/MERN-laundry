@@ -1,0 +1,25 @@
+@import url('../src/css/common.css');
+@import url('../src/css/main-page.css');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'SuisseIntl-SemiBold'; 
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.container-r
+{
+ width:100%;
+ height: auto;
+}
+
+main
+{
+margin:0px  
+}

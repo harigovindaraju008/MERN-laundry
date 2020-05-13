@@ -1,0 +1,59 @@
+@font-face 
+{
+  font-family:'SuisseIntl-SemiBold';
+  src: local('SuisseIntl-SemiBold'), url('../fonts/SuisseIntl-SemiBold.ttf') format('truetype');
+  }
+  
+  @font-face {
+  font-family:'WorkSans-Regular';
+  src: local('WorkSans-Regular'), url('../fonts/WorkSans-Regular.ttf') format('truetype');
+ 
+}
+
+@font-face {
+    font-family:'Liberator';
+    src: local('Liberator'), url('../fonts/Liberator.ttf') format('truetype');
+   
+  }
+
+
+ @import url(//fonts.googleapis.com/icon?family=Material+Icons);
+:root
+{
+  --main-clr:linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  --black:#000;
+  --dark:#343a40;
+  --header-color: #1294da;
+  --header-font-color:#fff;
+  --font-color:rgb(241, 238, 238);
+  --main-color:rgb(108,99,255);
+  --sigin-up-color:#DD67CB;
+  --bg-color:#2E94C9;
+  --pricing-bg:#F2ECEC ;
+  --box-shadow-clr:rgb(0, 0, 0);
+  --header-btn-clr:rgb(18, 148, 218);
+  --header-btn-hover-clr:rgb(211, 81, 81);
+  --text-shawdow-clr:#000;
+  --hr-clr:rgb(255, 245, 238);
+  --service-bg-color:rgb(18, 148, 218);
+  --serivce-square-clr:#E2E2E9;
+  --serivce-square-hover-clr:rgb(81, 81, 99);
+  --timeline-bgcolor:rgb(255, 255, 255);
+  --timeline-badgeclr:whitesmoke;
+  --timeline-cardclr:#d4d4d4;
+  --card-top-clr:#7A777B;
+  --card-font-clr:#F2ECEC;
+}
+
+ 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+   margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
