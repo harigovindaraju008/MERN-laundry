@@ -34,7 +34,7 @@ const port = process.env.PORT || 4001;
 const mongoDBUrl = process.env.MONGODB_URL;
 mongoose.set("useCreateIndex", true);
 mongoose
-  .connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true ,useFindAndModify: false })
   .then(() => {
     console.log("mongodb connected succesfully");
     app.listen(port, () => console.log(`backend is listening on port ${port}`));

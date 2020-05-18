@@ -33,7 +33,8 @@ router.get('/admin/booking/:id',verifyTokenAdmin,async (req,res) =>
 
 router.get("/info", verifyToken, async (req, res) => {
   const userData = jwt.verify(req.token, req.key);
-  // console.log(userData);
+   console.log(userData);
+   console.log("hari");
   let reqUser = await User.findOne({ email: userData.email }).select(["_id"]);
   let bookings = await Booking.find({ userId: reqUser._id }).populate("serviceId").sort({ '_id': -1 });
   //   Booking.aggregate([
@@ -62,11 +63,13 @@ router.put("/update", verifyToken, async (req, res) => {
   console.log(bookingid, bookingid.id);
   await Booking.findByIdAndUpdate(
     bookingid.id,
-    { $set: { bookingStatus: "Canceled" , rejectReason:bookingid.rejectReason} , upsert: true },
+    { $set: { bookingStatus: "Canceled" , rejectReason:bookingid.rejectReason} , upsert: true  },
+   { new : true},
     (err, result) => {
       if (err) {
         console.log(err);
       }
+      console.log(result);
       res.status(200).send(result);
     }
   );
@@ -119,7 +122,7 @@ router.post("/", verifyToken, async (req, res) => {
     if (resBookings) 
     {
     let bookinfInfo = await Booking.findById(resBookings._id).populate('userId').populate("serviceId");
-    sendMail(bookinfInfo,service.serviceName,reqUser.email,"bookingInfo");
+    // sendMail(bookinfInfo,service.serviceName,reqUser.email,"bookingInfo");
     console.log("mail send");
     res.status(200).send("Thanks for booking");
     }

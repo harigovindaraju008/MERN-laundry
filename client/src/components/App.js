@@ -11,8 +11,8 @@ import AdminRoute from './AdminRoute';
 import Myaccount from './Myaccount';
 import Admin from './admin/Admin';
 import ForgotPassword from './ForgotPassword';
-
-
+import configureStore from '../store/configureStore'
+import {Provider} from 'react-redux'
 
 class App extends Component 
 {
@@ -28,9 +28,11 @@ class App extends Component
 
   render()
   {
+    const store = configureStore();
   return ( 
     <Router>
     <Switch>
+    <Provider store={store}>
     <Route path="/"  component={Home} exact/>
     <AdminRoute path="/admin" component={Admin} />
     <Privaterouter  path="/MyAccount"  component={Myaccount} /> 
@@ -38,12 +40,15 @@ class App extends Component
     <Route path="/error"  component={Error} exact/>
     <Route path="/Forgotpassword/:token"  component={ForgotPassword} exact/>
     <Privaterouter  path="/booking" component={Booking}/>
+    </Provider>
     </Switch>
     <ToastContainer />
     </Router>  
 );
 }
 }
+
+
 
 export default App;
 

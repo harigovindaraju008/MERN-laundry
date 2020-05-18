@@ -99,13 +99,15 @@ router.put("/update",verifyToken , async (req,res) =>
 {
   try{
      let user = req.body;
+    //  console.log(user);
      const userData = jwt.verify(req.token,req.key);
      console.log(user);
-     await User.findOneAndUpdate({email:userData.email},user);
-     res.send("success");
+     let updatedUser = await User.findOneAndUpdate({email:userData.email},user,{new : true});
+    //  console.log(updatedUser);
+     res.status(200).send("success");
   }catch(err)
   {
-    res.status(400).send(err);
+    res.status(400).send("update failed");
   }
 })
 

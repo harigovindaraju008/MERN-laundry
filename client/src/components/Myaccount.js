@@ -6,8 +6,12 @@ import Modal from './modal'
 import api from '../config/api' 
 import {getClientRequestConfig} from '../config/requestConfig'
 import Preloader from "./Preloader";
+import { loadUser , updateUser } from '../store/users';
+import {loadBookings , updateBooking, bookingUpadte} from '../store/bookings'
+import {connect} from 'react-redux'
 
-export default class Myaccount extends Component {
+
+ class Myaccount extends Component {
   
   constructor()
   {
@@ -25,75 +29,55 @@ export default class Myaccount extends Component {
         cancelReason:"",
         cancelID:"",
       },
-    user:{
-          fname:"",
-          lname:"",
-          notes:"",
-          email:"",
-          address:"",
-          phoneNo: "",
-          city: "",
-          state: "",
-          zipcode:null
-        },
-     
-      token:"",
+      user:{},
       payment:"",
       pincode:"",
 
   }
-  this.FetchBooking = this.FetchBooking.bind(this);
-  this.FetchUser= this.FetchUser.bind(this);
+  // this.FetchBooking = this.FetchBooking.bind(this);
+   this.FetchUser= this.FetchUser.bind(this);
 }
 
-    FetchBooking = async () =>
-   (
+//     FetchBooking = async () =>
+//    (
 
-  await api.get("/booking/info",getClientRequestConfig()).then( async (Response) => {
-         console.log(Response.data);
-        await this.setState({bookingData:Response.data})
+//      await api.get("/booking/info",getClientRequestConfig()).then( async (Response) => {
+        
+//         await this.setState({bookingData:Response.data})
        
-      }).catch(err =>
-      {
-          console.log(err.response.data);
-      })
-    
+//       }).catch(err =>
+//       {
+//           console.log(err.response.data);
+//       })
+// )
 
-)
  FetchUser = async () =>
 (
-  //  console.log(this.state.token);
-  api.get("/user",getClientRequestConfig()).then( async (Response) => {
-       console.log(Response.data);
+
      await this.setState({
       user:{
-      fname:Response.data.fname,
-      lname:Response.data.lname,
-      notes:Response.data.notes,
-      email:Response.data.email,
-      address:Response.data.address,
-      phoneNo:Response.data.phoneNo,
-      city:Response.data.city,
-      state:Response.data.state,
-      zipcode:Response.data.zipcode
+      fname:this.props.users.fname,
+      lname:this.props.users.lname,
+      notes:this.props.users.notes,
+      email:this.props.users.email,
+      address:this.props.users.address,
+      phoneNo:this.props.users.phoneNo,
+      city:this.props.users.city,
+      state:this.props.users.state,
+      zipcode:this.props.users.zipcode
      },
-     pincode:Response.data.zipcode
-    
-     })
-     
-   }).catch(err =>
-   {
-       console.log(err.response.data);
-   })
+     pincode:this.props.users.zipcode
+     })   
 )
   
     async componentDidMount() 
     {
+      await this.props.getBookings();
+      await this.props.loaduser();
       await this.setState({token:localStorage.getItem('auth_token')}) 
-      await this.FetchBooking();
+      // await this.FetchBooking();
       await this.FetchUser();
-      this.setState({loader:false});
-      
+      this.setState({loader:false});   
     }
 
     
@@ -102,29 +86,30 @@ export default class Myaccount extends Component {
   
     render() 
     {
+
   const cancelOrder = async (event) =>
   {
     event.preventDefault();
-    this.setState({loader:true});
+    // this.setState({loader:true});
     let button = event.target;
     let bookingid = {id:this.state.cancel.cancelID,rejectReason:this.state.cancel.cancelReason}
     this.setState({cancelModal:false});
-    
-    api.put("/booking/update", bookingid ,getClientRequestConfig()).then( async (Response) => 
-     {
-       toast.success("canceled");
-      //  console.log(Response.data);
-       button.remove();
-       await this.FetchBooking();
-       this.setState({loader:false});
+    await this.props.cancleOrder(bookingid);
+    button.remove();
+    toast.success(this.props.BookingMessage);
+    // api.put("/booking/update", bookingid ,getClientRequestConfig()).then( async (Response) => 
+    //  {
+    //    toast.success("canceled");
+    //   //  console.log(Response.data);
+    //    button.remove();
+    //    await this.FetchBooking();
+    //    this.setState({loader:false});
        
-    }).catch(err =>
-    {
-        console.log(err);
-        this.setState({loader:false});
-    }) 
-
-
+    // }).catch(err =>
+    // {
+    //     console.log(err);
+    //     this.setState({loader:false});
+    // }) 
 
   }
 
@@ -134,7 +119,6 @@ export default class Myaccount extends Component {
    {
     await this.setState({Summary:booking,orderDetails:fulldata})
     this.setState({modalShow:true})
-    // console.log(this.state.Summary,this.state.orderDetails);
    }
 
 
@@ -155,7 +139,7 @@ export default class Myaccount extends Component {
   
   
   
-   const updateForm = () =>
+   const updateForm =  async() =>
    {
      if(this.state.update)
      {
@@ -164,9 +148,8 @@ export default class Myaccount extends Component {
      else
      {
      
-      this.setState({update:true,loader:true})
+      this.setState({update:true})
       const user = {
-       
         email:this.state.user.email,
         fname:this.state.user.fname,
         lname:this.state.user.lname,
@@ -177,33 +160,8 @@ export default class Myaccount extends Component {
         state:this.state.user.state,
         zipcode:this.state.pincode
     }
-
-    //  console.log(user,this.state.zipcode);
-      api.put("/user/update",user,getClientRequestConfig()).then( async (Response) => {
-        console.log(Response.data);
-        await this.setState({
-         user:{
-         fname:Response.data.fname,
-         lname:Response.data.lname,
-         notes:Response.data.notes,
-         email:Response.data.email,
-         address:Response.data.address,
-         phoneNo:Response.data.phoneNo,
-         city:Response.data.city,
-         state:Response.data.state,
-         zipcode:Response.data.zipcode
-        }
-         
-        })
-        toast.success("successfully updated");
-        await this.FetchUser();
-        this.setState({loader:false});
-       
-      }).catch(err =>
-      {
-          toast.error(err.response.data);
-          this.setState({loader:false});
-      })
+      await this.props.updateuser(user);
+      toast.success(this.props.userMessage);
      }
    }
 
@@ -282,7 +240,7 @@ export default class Myaccount extends Component {
           </form>
          </Modal>
          }
-          { this.state.loader ? <Preloader/> :
+          { this.props.Bookingloading && this.props.userloading ? <Preloader/> :
           <>
           <Header btn={true}  Headertwo={true}/>
           <div className="user">
@@ -300,7 +258,7 @@ export default class Myaccount extends Component {
           </tr>
           </thead>
           <tbody>
-          {this.state.bookingData.map((data , index) => <Table key={index} tableData={data}/>)}
+          {this.props.bookings.map((data , index) => <Table key={index} tableData={data}/>)}
           </tbody>
           </table> 
           </div>
@@ -384,7 +342,7 @@ export default class Myaccount extends Component {
           <div className="col-lg-4">
           <div className="form-group">
           <label className="form-control-label" htmlFor="input-country">Zip code</label>
-          <input type="number" id="input-postal-code"  className="form-control form-control-alternative"  readOnly={this.state.update}  placeholder="Postal code" onChange={(e) => {this.setState({pincode:e.target.value})} } value={this.state.pincode} />
+          <input type="number" id="input-postal-code"  className="form-control form-control-alternative"  readOnly={this.state.update}  placeholder="Postal code" onChange={(e) => {this.setState({pincode:e.target.value})} } value={this.state.user.pincode} />
           </div>
           </div>
           </div>
@@ -418,4 +376,24 @@ export default class Myaccount extends Component {
     }
 }
 
+const mapStateToProps = (state) =>
+({
+  //users
+  users:state.entities.user.list,
+  userMessage:state.entities.user.message,
+  userloading:state.entities.user.loading,
+//bookings
+bookings:state.entities.bookings.list,
+BookingMessage:state.entities.bookings.message,
+Bookingloading:state.entities.bookings.loading,
+});
+const mapDispatchToProps = (dispatch) =>
+({
+loaduser: () => dispatch(loadUser()),
+updateuser: (data) => dispatch(updateUser(data)),
+getBookings: () => dispatch(loadBookings()),
+cancleOrder: (data) => dispatch(updateBooking(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Myaccount);
 
