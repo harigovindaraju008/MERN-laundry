@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forgot password link</title>
+</head>
+<body>
+    <div>
+        <h3>Dear <%= userEmail.fname + userEmail.lname %> ,</h3>
+        <p>You requested for a password reset, kindly use this <a href="https://clean-thuni.herokuapp.com/Forgotpassword/<%= output%>">link</a> to reset your password</p>
+        <br>
+        <p>Cheers!</p>
+    </div>
+</body>
+</html>

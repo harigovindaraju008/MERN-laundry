@@ -1,0 +1,618 @@
+@import url('./common.css');
+
+/******* header section start ******/
+header{
+width: 100%;
+margin: 0;
+background:var(--header-color);
+color: var(--font-color);
+}
+/******* header section end ******/
+/******* header  one section  start ******/
+.header-one
+{
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ padding-bottom:.5em ;
+}
+.navbar > nav > ul  
+{
+width: 100%;
+height: auto;
+list-style: none;
+display: flex;
+justify-content: space-between;
+}
+
+.navbar > nav > ul > li
+{
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-align: center;
+font-size:.75rem;
+margin-left:2em;    
+}
+.bookingbtn
+{ 
+ border-radius: 2em;
+ padding: .5em ;
+ height: auto;
+ width:100%;
+ color: var(--header-font-color);
+ background:var(--header-btn-clr);
+ border: 2px solid var(--font-color);
+ box-shadow: 0px 8px 6px -6px var(--box-shadow-clr);
+ 
+}
+.bookingbtn:focus , .bookingbtn:hover
+{ 
+    text-decoration: none;
+    outline: none;
+    color: var(--header-font-color);
+    background: var(--header-btn-hover-clr);
+}
+.header-info 
+{
+    display:flex;
+    align-items: center;
+    
+}
+.header-info > div:nth-child(1)
+{
+    height: auto;
+    width: 30%;
+
+}
+.header-info > div:nth-child(2)
+{
+    max-width:100%;
+    height: auto;
+    width: 70%; 
+}
+.header-info > div > img 
+{
+height:auto;
+width:100%;
+max-width:100%;
+min-width:70%;
+}
+
+.link
+{
+    text-decoration: none;
+}
+.link:hover
+{
+    text-decoration: none;
+}
+.site-title h1
+{
+    color: var(--font-color);
+    text-decoration: none;
+    font-size:2rem;
+    text-shadow: 2px 2px var(--text-shawdow-clr);
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.info span
+{
+    padding: .2em;
+}
+
+.info span:nth-child(1)
+{
+color: rgb(0, 0, 0);
+}
+
+@media (max-width:770px) {
+   
+   
+    .navbar > nav > ul
+    {
+        flex-direction: column;
+    }
+
+    .header-one
+     { flex-direction: column;
+       }
+}
+
+/******* header section  end ******/
+/* hr line start */
+header hr
+{
+background-color: var(--hr-clr);
+height: 100%;
+width: 90%;
+margin: 0 auto;
+}
+/* hr line end */
+/******* header two section  start ******/
+
+.header-two > nav > ul
+{
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+}
+.header-two ul 
+{
+    list-style: none;
+}
+.header-two li
+{
+    margin: 1em;
+}
+
+.header-two a
+{
+    text-decoration: none;
+    color: var(--font-color);
+    text-shadow: 1px 1px var(--text-shawdow-clr);
+   
+}
+.header-two > nav a:focus , .header-two > nav a:hover
+{
+    color: black;
+    text-decoration: none;
+    
+}
+.current
+{
+    border-bottom:2px solid var(--font-color);
+
+}
+.current:hover , .current:focus
+{
+    color:var(--header-font-color)!important;
+    
+}
+
+@media (max-width:770px) {
+    .header-two > nav > ul{
+    flex-direction: column;
+    }
+}
+/******* header two section  end ******/
+/******* carousel section  start ******/
+.carousel-div
+{
+margin:-1em 0 1em 0;
+width: 100%;
+position: relative;
+}
+
+.carousel-item img
+{
+display: block;
+height: 90vh;
+width: 100%;
+}
+@media (max-width:770px) {
+    .carousel-item img
+    {   
+    height:auto;
+    }
+}
+
+
+/******* carousel section  end ******/
+
+/******* services section  start ******/
+.service
+{ 
+    color: var(--font-color);
+    margin-top:-1em;
+    background:var(--service-bg-color) ;
+    width: 100%;
+    
+}
+
+.service-heading
+{
+    padding-top:2em;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 1px 1px var(--text-shawdow-clr);
+}
+.square-container
+{
+ display: flex;
+ justify-content: space-around;
+ padding: 3em;
+}
+
+.service-group
+{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+    
+}
+.square
+{
+
+    display: flex;
+    align-self: center;
+    border: 2px  solid black;
+    text-align: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 0px 8px 6px -6px var(--box-shadow-clr);
+    background-color: var(--serivce-square-clr);
+    margin-bottom: 1em;
+    
+ }
+
+ .square:hover
+ {
+    background-color: var(--serivce-square-hover-clr); 
+    transform: scale(1.09);
+ }
+
+ .service-group h1
+{
+    font-size: 1.5rem;
+    text-align: center;
+
+    
+}
+.service_img
+{
+      height:auto;
+      width:100%;
+      padding:2.5em;
+      display:flex;
+      justify-content:center; 
+      align-items:center;    
+}
+@media (max-width:770px) 
+{
+    .square-container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/******* services section  end ******/
+
+/******* timeline  section start ******/
+.timeline
+    {
+        list-style: none;
+        position: relative;
+       padding:1em;;
+   
+    }
+   .linedesgin
+   {
+       content: "";
+       width: 20px;
+       height:5px;
+       background-color:var(--black);
+       position: absolute;
+       top:0px;
+       left:50%;
+       margin-left:-10px; ;
+   
+   }
+   .linedesgin1
+   {
+       content: "";
+       width: 20px;
+       height:5px;
+       background-color:var(--black);
+       position: absolute;
+       bottom:0px;
+       left:50%;
+       margin-left:-10px; ;
+   
+   }
+   
+    .timeline::before
+    {
+        top:0px;
+        bottom:0px;
+        position: absolute;
+        content: "";
+        width: 3px;
+        background-color:var(--black);
+        left:50%;
+        margin-left:-1.5px;
+       
+    }
+   
+    .timeline > li
+    {
+        margin-bottom:20px;
+        position: relative;
+    }
+   
+    .timeline > li::after,.timeline::before
+    {
+        content: "";
+        display: table;
+    }
+   
+    .timeline > li::after
+    {
+        clear: both;
+    }
+   
+    .body-card
+    {
+        width:50%;
+        float: left;
+        border: 1px solid var(--timeline-cardclr);
+        border-radius:2px;
+        padding:20px;
+        position: relative;
+        word-break: keep-all;
+        background-color: var(--timeline-bgcolor);
+        box-shadow: 0 1px 6px var(--box-shadow-clr);
+    }
+   
+    .timeline > li:not(.odd)
+   {
+       padding-right:5em;
+   }
+   
+   .timeline > li.odd
+   {
+       padding-left:5em;
+       
+   }
+   
+   .timeline > li.odd > .body-card {
+   
+       float:right;
+   }
+   .timeline > li .badge
+   {
+       font-size: 1rem;
+       width:50px;
+       height: 50px;
+       line-height:40px;
+       text-align: center;
+       position: absolute;
+       left: 50%;
+       top:3rem;
+       color: var(--timeline-badgeclr);
+       margin-left:-25px;
+       background-color:var(--black);
+       border-top-right-radius:50% ;
+       border-top-left-radius: 50%;
+       border-bottom-left-radius:50%;
+       border-bottom-right-radius:50%;
+   }
+    .section-timeline
+    {
+        padding:5em 0 5em 0;
+       color: black !important;
+       background-image:var(--main-clr) ;
+
+    }
+   
+/*******Timeline section  end ******/
+
+/*******Pricing section  start ******/
+
+#pricing
+{
+  margin-top: -15px;
+  width: 100%;
+}
+.pricing
+{
+ min-width:100%;
+ padding: 5em;
+ background: linear-gradient(180deg,var(--pricing-bg)40%, var(--bg-color)40%);
+}
+
+.price-card-deck
+{
+ display:grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-gap:2%;
+}
+.price-card{
+    text-align: center;
+    border: 2px solid var(--black);
+    border-radius:20px;
+    background-color: var(--pricing-bg);
+}
+.price-card:hover
+{
+    transform: scale(1.09);
+}
+
+.price-card-top
+{
+ border: 2px solid var(--card-top-clr);
+ border-radius: 20px;
+ background:var(--card-top-clr); ;
+ color: var(--card-font-clr);
+ text-shadow: 2px 2px var(--text-shawdow-clr);
+ font-size:2rem;
+}
+.price-card-title
+{
+ color: var(--bg-color);
+
+}
+.price-card-body
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-evenly;
+}
+.price-card-body  .price-btn
+{
+ background: var(--card-top-clr);
+ border-radius: 20px;
+ box-shadow: 0px 8px 6px -6px var(--box-shadow-clr);
+ color: var(--card-font-clr);
+ font-size: 1rem;
+ padding:1em;
+ margin-bottom:1em;
+}
+
+.price-btn:focus
+{
+    outline: none;
+}
+
+.price-card-price
+{
+ font-size:4rem;
+}
+
+.text 
+{
+ font-size: 25px;
+ margin: 10px 100px;
+ background-color: var(--card-font-clr);
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.price-heading
+{
+color:var(--bg-color);
+text-shadow: 2px 2px var(--text-shawdow-clr);
+
+}
+.price-heading-div
+{
+  
+  width:100%;
+  display:inline-block;
+  text-align: center;
+}
+.price-sub-heading
+{
+ color: #1B3340;
+}
+
+
+
+@media (max-width:920px) 
+{
+    .price-card-deck
+    {
+     grid-template-columns: none;
+     grid-template-rows: 1fr 1fr 1fr;
+    }
+
+}
+/*******Pricing section  end ******/
+
+/****** footer section starts*****/
+
+
+.footer
+ {
+     background-color: var(--dark);
+     color: var(--font-color);
+     display:grid;
+     grid-template-columns: 40% 1fr 1fr;
+     grid-gap:5%;
+     padding: 8em ;
+ }
+ @media (max-width:920px) 
+ {
+    .footer
+    {
+        padding: 3em;
+        grid-template-columns:none;
+        grid-template-rows:1fr 1fr 1fr;
+    }
+
+ }
+ 
+
+
+/****** footer section ends*****/
+
+
+  .form-pwd
+  {
+      margin-top: 5em;
+     display:grid;
+     grid-template-columns:1fr;
+     grid-gap: 10px;;
+  }
+
+  .centered
+  {
+       position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgb(255, 255, 255);
+  }
+  .center-div
+  {
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+  }
+  .part2 {
+    width: 30px;  margin: 15% auto;
+    height: 30px;  background: var(--header-color);
+    display: inline-block;
+  }
+  .part2.p1 {
+    animation: part2p1 .8s infinite;
+  }
+  .part2.p2 {
+    animation: part2p2 .8s infinite;
+  }
+  .part2.p3 {
+    animation: part2p3 .8s infinite;
+  }
+  .part2.p4 {
+    animation: part2p4 .8s infinite;
+  }
+  .part2.p5 {
+    animation: part2p5 .8s infinite;
+  }
+  @keyframes part2p1 {
+    0% {
+      transform: scale(1, 2.7);
+    }
+  }
+  @keyframes part2p2 {
+    25% {
+      transform: scale(1, 2.7);
+    }
+  }
+  @keyframes part2p3 {
+    40% {
+      transform: scale(1, 2.7);
+    }
+  }
+  @keyframes part2p4 {
+    60% {
+      transform: scale(1, 2.7);
+    }
+  }
+  @keyframes part2p5 {
+    80% {
+      transform: scale(1, 2.7);
+    }
+  }

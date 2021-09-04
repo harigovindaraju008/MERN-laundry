@@ -1,0 +1,154 @@
+.form-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.existinguserForm {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr;
+  padding: 5em;
+}
+
+.basicInputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2em;
+  padding: 5em;
+}
+
+.specialNotes {
+  display: grid;
+  margin: 1em 0px;
+}
+
+.newUser {
+  width: 100%;
+  height: auto;
+}
+
+.existinguser {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 650px) {
+  .form-div {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* login form classess */
+.container:before,
+.container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #ef3b3a;
+}
+/*end container*/
+
+/*start form*/
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 800px;
+  margin: 0 auto 100px;
+  padding: 30px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  text-align: center;
+}
+.form .image {
+  background:var(--bg-color);
+  max-width: 150px;
+  height: 150px;
+  margin: 0 auto 30px;
+ 
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form .image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.form input,
+.form textarea,
+#state {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  outline: 0;
+  background: var(--bg-color);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.form .register-form {
+  display: none;
+}
+#DOB,
+#state {
+  font-size: 14px;
+  color: #747474;
+}
+/*end form*/
