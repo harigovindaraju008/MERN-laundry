@@ -204,19 +204,24 @@ export default class ServiceUnits extends Component {
           </div>  
           </Form.Group>
           <Form.Group >
-          <Form.Label>Status</Form.Label>
+          <div className="form-group focused">
+          <label className="form-control-label" htmlFor="input-price">Status</label>
           <Form.Control as="select" size="md"  value={this.state.serviceUnitsForm.status}     onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , status:e.target.value}})}custom>
-         <option value="">select</option>
-          <option>true</option>
-          <option>false</option>
+          <option value="">select</option>
+            <option>true</option>
+            <option>false</option>
           </Form.Control>
+          </div>  
           </Form.Group>
         <Form.Group>
-        <Form.File 
-        id="custom-file"
-        label="select serive img file"
-        onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , serviceUnitsImage:e.target.files[0]}})}
-        />
+          <div className="form-group focused">
+          <label className="form-control-label" htmlFor="input-price">Service unit Image</label>
+          <Form.Control 
+          id="custom-file"  type="file" size="md"
+          label="select serive img file"
+          onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , serviceUnitsImage:e.target.files[0]}})}
+          />
+          </div>  
         </Form.Group>
           <Button variant="primary btn-sm" type="submit"  >Submit</Button>    
           </Form>
