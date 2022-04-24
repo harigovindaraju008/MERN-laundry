@@ -114,31 +114,40 @@ export default class Services extends Component {
            {this.state.loader ? <Preloader/>  :
           <div>
           {this.state.showModal &&  <Modal  closeModal={() => {this.setState({showModal:false});}} >
-          <Form  onSubmit={ServiceForm} encType="multipart/form-data">
-          <Form.Group >
-          <div className="form-group focused">
-          <label className="form-control-label" htmlFor="input-serviceName">Service Name</label>
-          <input type="text" id="input-serviceName"  className="form-control form-control-alternative" placeholder="Service Name"      value={this.state.serviceForm.serviceName}    onChange={(e) => this.setState({serviceForm:{...this.state.serviceForm , serviceName:e.target.value}})} />
-          </div>  
-          </Form.Group>
-          <Form.Group >
-          <Form.Label>Status</Form.Label>
-          <Form.Control as="select" size="md" value={this.state.serviceForm.status} onChange={(e) => this.setState({serviceForm:{...this.state.serviceForm , status:e.target.value}})}custom>
-         <option value="">select</option>
-          <option>true</option>
-          <option>false</option>
-          </Form.Control>
-          </Form.Group>
-        <Form.Group>
-        <Form.File 
-        id="custom-file"
-        label="select service img file"
-         
-        onChange={(e) => this.setState({serviceForm:{...this.state.serviceForm , serviceImage:e.target.files[0]}})}
-        />
-        </Form.Group>
-          <Button variant="primary btn-sm" type="submit"  >Submit</Button>    
-          </Form>
+            <Form  onSubmit={ServiceForm} encType="multipart/form-data">
+              <Form.Group >
+              <div className="form-group focused">
+                <label className="form-control-label" htmlFor="input-serviceName">Service Name</label>
+                <input type="text" id="input-serviceName"  className="form-control form-control-alternative" placeholder="Service Name"      value={this.state.serviceForm.serviceName}    onChange={(e) => this.setState({serviceForm:{...this.state.serviceForm , serviceName:e.target.value}})} />
+              </div>  
+              </Form.Group>
+              <Form.Group >
+              <div className="form-group focused">
+                <label className="form-control-label" htmlFor="input-serviceName">Status</label>
+                <Form.Control as="select" size="md" value={this.state.serviceForm.status} onChange={(e) => this.setState({serviceForm:{...this.state.serviceForm , status:e.target.value}})}custom>
+                <option value="">select</option>
+                <option>true</option>
+                <option>false</option>
+                </Form.Control>
+              </div>  
+              </Form.Group>
+              <Form.Group>
+              <div className="form-group focused">
+                <label className="form-control-label" htmlFor="input-serviceName">Service Image</label>
+                <Form.Control 
+                type="file" size="md"
+                id="custom-file"
+                label="select service img file"
+                onChange={(e) => this.setState({serviceForm:{...this.state.serviceForm , serviceImage: e.target.files[0]}})}
+                />
+                </div>  
+              </Form.Group>
+            <Form.Group>
+              <div className="form-group focused">
+                <Button variant="primary btn-sm" type="submit"  >Submit</Button>    
+              </div>  
+            </Form.Group>
+            </Form>
          </Modal>
          }
 

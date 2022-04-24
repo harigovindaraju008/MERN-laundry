@@ -128,45 +128,50 @@ export default class ServiceUnits extends Component {
           <div>
           {this.state.showModal &&  <Modal  closeModal={() => {this.setState({showModal:false})}} >
           <Form  onSubmit={ServiceUnitForm} encType="multipart/form-data">
-          <Form.Group >
-          <div className="form-group focused">
-          <label className="form-control-label" htmlFor="input-serviceUnitName">Service unit Name</label>
-          <input type="text" id="input-serviceUnitName"  className="form-control form-control-alternative" placeholder="Service Unit Name"   value={this.state.serviceUnitsForm.serviceUnitsName}    onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , serviceUnitsName:e.target.value}})} />
-          </div>  
+            <Form.Group >
+            <div className="form-group focused">
+            <label className="form-control-label" htmlFor="input-serviceUnitName">Service unit Name</label>
+            <input type="text" id="input-serviceUnitName"  className="form-control form-control-alternative" placeholder="Service Unit Name"   value={this.state.serviceUnitsForm.serviceUnitsName}    onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , serviceUnitsName:e.target.value}})} />
+            </div>  
+            </Form.Group>
+            <Form.Group >
+            <div className="form-group focused">
+            <label className="form-control-label" htmlFor="input-MinLimit">minimum limit</label>
+            <input type="number" id="input-MinLimit"  className="form-control form-control-alternative" placeholder="min limit"   value={this.state.serviceUnitsForm.minlimit}   onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , minlimit:e.target.value}})} />
+            </div>  
+            </Form.Group>
+            <Form.Group >
+            <div className="form-group focused">
+            <label className="form-control-label" htmlFor="input-MaxLimit">maximum limit</label>
+            <input type="number" id="input-MaxLimit"  className="form-control form-control-alternative" placeholder="max limit"   value={this.state.serviceUnitsForm.maxlimit}   onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , maxlimit:e.target.value}})} />
+            </div>  
+            </Form.Group>
+            <Form.Group >
+            <div className="form-group focused">
+            <label className="form-control-label" htmlFor="input-price">price</label>
+            <input type="number" id="input-price"  className="form-control form-control-alternative" placeholder="price"   value={this.state.serviceUnitsForm.price}        onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , price:e.target.value}})} />
+            </div>  
+            </Form.Group>
+            <Form.Group >
+              <div className="form-group focused">
+                <label className="form-control-label" htmlFor="input-price">Status</label>
+                <Form.Control as="select" size="md"  value={this.state.serviceUnitsForm.status}    onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , status:e.target.value}})}custom>
+                  <option value="">select</option>
+                  <option>true</option>
+                  <option>false</option>
+                </Form.Control>
+              </div>  
+            </Form.Group>
+          <Form.Group>
+            <div className="form-group focused">
+            <label className="form-control-label" htmlFor="input-price">Service unit Image</label>
+            <Form.Control 
+            id="custom-file" type="file" size="md"
+            label="select serive img file"
+            onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , serviceUnitsImage:e.target.files[0]}})}
+            />
+            </div>  
           </Form.Group>
-          <Form.Group >
-          <div className="form-group focused">
-          <label className="form-control-label" htmlFor="input-MinLimit">minimum limit</label>
-          <input type="number" id="input-MinLimit"  className="form-control form-control-alternative" placeholder="min limit"   value={this.state.serviceUnitsForm.minlimit}   onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , minlimit:e.target.value}})} />
-          </div>  
-          </Form.Group>
-          <Form.Group >
-          <div className="form-group focused">
-          <label className="form-control-label" htmlFor="input-MaxLimit">maximum limit</label>
-          <input type="number" id="input-MaxLimit"  className="form-control form-control-alternative" placeholder="max limit"   value={this.state.serviceUnitsForm.maxlimit}   onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , maxlimit:e.target.value}})} />
-          </div>  
-          </Form.Group>
-          <Form.Group >
-          <div className="form-group focused">
-          <label className="form-control-label" htmlFor="input-price">price</label>
-          <input type="number" id="input-price"  className="form-control form-control-alternative" placeholder="price"   value={this.state.serviceUnitsForm.price}        onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , price:e.target.value}})} />
-          </div>  
-          </Form.Group>
-          <Form.Group >
-          <Form.Label>Status</Form.Label>
-          <Form.Control as="select" size="md"  value={this.state.serviceUnitsForm.status}    onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , status:e.target.value}})}custom>
-         <option value="">select</option>
-          <option>true</option>
-          <option>false</option>
-          </Form.Control>
-          </Form.Group>
-        <Form.Group>
-        <Form.File 
-        id="custom-file"
-        label="select serive img file"
-        onChange={(e) => this.setState({serviceUnitsForm:{...this.state.serviceUnitsForm , serviceUnitsImage:e.target.files[0]}})}
-        />
-        </Form.Group>
           <Button variant="primary btn-sm" type="submit"  >Submit</Button>    
           </Form>
          </Modal>
