@@ -39,7 +39,7 @@ import { Link , withRouter } from "react-router-dom";
           <div className="hosting">
             <Link to="/admin/Booking">
           
-              <button className={this.state.active === 'Bookings' ? 'active hosting-btn nav-btn' :'hosting-btn nav-btn'}  onClick={(e) =>  this.setState({active:e.target.innerText})}>Bookings</button>
+              <button className={this.state.active === 'Bookings' ? 'active hosting-btn nav-btn' :'hosting-btn nav-btn'}  onClick={(e) =>  this.setState({active:e.target.innerText})}>Search</button>
             </Link>
           </div>
           <div className="marketplace">

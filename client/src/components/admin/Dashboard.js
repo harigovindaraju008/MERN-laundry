@@ -5,7 +5,8 @@ import {getAdminRequestConfig} from '../../config/requestConfig'
 import {Button,Form} from 'react-bootstrap'
 import Modal from "../modal"
 import Preloader from "../Preloader";
-
+import LineGraph from './LineGraph';
+import PieGraph from './PieGraph';
 export default class Dashboard extends Component {
     
     constructor()
@@ -340,6 +341,12 @@ export default class Dashboard extends Component {
               {this.state.loader ? <Preloader/> :
                   <>
                 <div className="dashboard-main">
+                <div className="row">
+                        <LineGraph />
+                </div>
+                <div className="row">
+                <PieGraph />
+                </div>
                 <div  className="choose-heading "><h3>Bookings</h3></div>
                 <div>
                 
